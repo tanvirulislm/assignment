@@ -8,27 +8,27 @@ class ProfileController extends Controller
 {
     public function index($id)
     {
-        // Declare variables
+        
         $name = "Donald Trump";
         $age = "75";
 
-        // Create an associative array with the variables
+        
         $data = [
             'id' => $id,
             'name' => $name,
             'age' => $age
         ];
 
-        // Set the cookie variables
+      
         $cookieName = 'access_token';
         $cookieValue = '123-XYZ';
-        $cookieMinutes = 1; // in minutes
+        $cookieMinutes = 1;
         $cookiePath = '/';
         $cookieDomain = $_SERVER['SERVER_NAME'];
         $cookieSecure = false;
         $cookieHttpOnly = true;
 
-        // Create the cookie
+     
         $cookie = cookie(
             $cookieName,
             $cookieValue,
@@ -39,7 +39,7 @@ class ProfileController extends Controller
             $cookieHttpOnly
         );
 
-        // Return response with data, status code, and cookie
+       
         return response()->json($data, 200)->cookie($cookie);
     }
 }
